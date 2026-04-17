@@ -1,0 +1,1 @@
+[{"id":"1","label":"Nom du site","type":"text"},{"id":"2","label":"Type de déchet","type":"select","options":["Plastique","Verre","Papier"]}]

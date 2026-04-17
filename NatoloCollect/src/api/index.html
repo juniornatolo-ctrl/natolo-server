@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NatoloCollect | Monitoring</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white flex items-center justify-center h-screen">
+    <div class="text-center p-10 bg-gray-800 rounded-3xl shadow-2xl border border-blue-500">
+        <h1 class="text-4xl font-bold mb-4 text-blue-400">📊 NatoloCollect Live</h1>
+        <p class="text-gray-400 mb-8">Statistiques en temps réel de la collecte</p>
+        <div class="text-6xl font-black text-white bg-gray-700 py-6 rounded-2xl" id="counter">0</div>
+        <p class="mt-4 text-sm text-blue-300 italic">Membres enregistrés</p>
+    </div>
+    <script>
+        async function update() {
+            const res = await fetch('/stats');
+            const data = await res.json();
+            document.getElementById('counter').innerText = data.total;
+        }
+        setInterval(update, 2000);
+        update();
+    </script>
+</body>
+</html>

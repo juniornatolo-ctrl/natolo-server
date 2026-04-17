@@ -1,0 +1,132 @@
+Tu es un architecte logiciel senior spécialisé en systèmes distribués, plateformes de collecte de données terrain, et architectures cloud scalables (niveau entreprise / ONG internationale / data platform type KoboToolbox).
+
+Je conçois un système nommé "NatoloCollect", une plateforme de collecte, traitement et analyse de données destinée à être plus flexible, modulaire et évolutive que les solutions existantes comme KoboToolbox.
+
+⚠️ IMPORTANT :
+Ne fais pas une réponse théorique générique.
+Donne une architecture concrète, exploitable et implémentable.
+
+---
+
+# 1. OBJECTIF DU SYSTÈME
+
+NatoloCollect doit permettre :
+
+- collecte de données mobile et web
+- fonctionnement offline-first (zones sans internet)
+- synchronisation fiable des données
+- gestion des conflits de synchronisation
+- création de formulaires dynamiques et versionnés
+- validation intelligente des données à la saisie et côté serveur
+- nettoyage et prétraitement automatique des données
+- gestion des données manquantes et incohérentes
+- génération de dashboards et visualisations
+- export des données (CSV, JSON, PDF)
+- gestion multi-utilisateurs avec rôles (admin, enquêteur, analyste)
+
+---
+
+# 2. OBJECTIF STRATÉGIQUE
+
+Concevoir un système :
+
+- plus modulaire que KoboToolbox
+- plus adapté aux environnements réseau instables
+- avec meilleure qualité des données (data quality pipeline natif)
+- avec meilleure traçabilité et auditabilité
+- scalable à grande échelle (multi-organisation)
+
+---
+
+# 3. CONTRAINTE IMPORTANTE
+
+Tu dois proposer :
+
+- une architecture réaliste et implémentable
+- une évolution progressive :
+  MVP → V1 → V2 → Enterprise
+- éviter les sur-architectures inutiles au début
+
+---
+
+# 4. LIVRABLES ATTENDUS
+
+## A. Architecture globale
+- schéma des couches système
+- flux de données end-to-end
+
+## B. Architecture technique détaillée
+- frontend
+- backend
+- API gateway
+- data pipeline
+- storage layer
+
+## C. Module offline-first
+- stratégie de stockage local
+- sync engine
+- gestion des conflits (stratégies possibles)
+
+## D. Pipeline de données
+- ingestion (raw data)
+- validation
+- nettoyage
+- transformation
+- dataset analytique final
+
+## E. Sécurité
+- authentification (JWT/OAuth2)
+- autorisation (RBAC)
+- chiffrement (in transit / at rest)
+- audit logs
+
+## F. Analytics & visualisation
+- architecture du dashboard
+- calcul des métriques
+- outils recommandés
+
+## G. Scalabilité
+- stratégie de montée en charge
+- base de données
+- cache
+- load balancing
+
+## H. Plan de développement
+- MVP (priorités essentielles)
+- V1 (amélioration produit)
+- V2 (scalabilité + offline avancé)
+- Enterprise (industrialisation)
+
+---
+
+# 5. DIFFÉRENCIATION OBLIGATOIRE
+
+En plus de l’architecture, propose :
+
+- les faiblesses typiques des plateformes comme KoboToolbox
+- comment NatoloCollect corrige ces failles
+- les innovations possibles réalistes (pas de science-fiction)
+
+---
+
+# 6. FORMAT DE RÉPONSE
+
+Structure ta réponse comme un document d’architecture logiciel professionnel avec :
+
+- titres clairs
+- diagramme logique en texte
+- points techniques précis
+- décisions d’architecture justifiées
+- priorisation claire
+
+---
+
+# 7. OBJECTIF FINAL
+
+Produire un design système complet que je peux utiliser pour :
+- implémentation backend réelle
+- développement frontend
+- structuration de base de données
+- déploiement cloud
+
+Ne reste pas théorique. Sois concret, structuré et orienté implémentation.

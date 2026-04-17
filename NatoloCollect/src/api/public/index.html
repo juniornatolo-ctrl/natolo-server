@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NatoloCollect | Monitoring</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white flex items-center justify-center min-h-screen py-10">
+    <div class="text-center p-10 bg-gray-800 rounded-3xl shadow-2xl border border-blue-500 w-full max-w-lg">
+        <h1 class="text-4xl font-bold mb-4 text-blue-400">📊 NatoloCollect Live</h1>
+        <p class="text-gray-400 mb-8">Suivi des inscriptions en direct</p>
+        
+        <div class="text-6xl font-black text-white bg-gray-700 py-6 rounded-2xl mb-4" id="counter">0</div>
+        
+        <a href="/export-csv" class="mb-8 inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">📥 Télécharger Excel</a>
+
+        <div class="mt-6 overflow-hidden rounded-xl border border-gray-700 bg-gray-900 text-left">
+            <table class="w-full">
+                <thead class="bg-gray-700 text-xs text-gray-400 uppercase">
+                    <tr><th class="px-4 py-2 font-bold">Nom</th><th class="px-4 py-2 font-bold">Rôle</th></tr>
+                </thead>
+                <tbody id="recent-list" class="text-sm divide-y divide-gray-800">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        async function update() {
+            try {
+                // Mise à jour du compteur
+                const resStats = await fetch('/stats');
+                const dataStats = await resStats.json();
+                document.getElementById('counter').innerText = dataStats.total;
+
+                // Mise à jour de la liste
+                const resRecent = await fetch('/recent');
+                const members = await resRecent.json();
+                const list = document.getElementById('recent-list');
+                list.innerHTML = members.map(m => 
+                    `<tr class="hover:bg-gray-800 transition"><td class="px-4 py-3 font-medium">${m.data.nom || 'Sans nom'}</td><td class="px-4 py-3 text-blue-400">${m.data.status || 'Membre'}</td></tr>`
+                ).join('');
+            } catch (e) { console.error("Erreur de mise à jour", e); }
+        }
+        setInterval(update, 2000);
+        update();
+    </script>
+</body>
+</html>
